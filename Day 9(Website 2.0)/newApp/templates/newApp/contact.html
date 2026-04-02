@@ -1,0 +1,228 @@
+{% extends 'website/layout.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Get in touch with us for any inquiries or support</p>
+    </div>
+    <div class="contact-content">
+        <div class="contact-info">
+            <div class="info-section">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Address</h3>
+                <p>123 Main Street, City, State 12345</p>
+            </div>
+            <div class="info-section">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <p>+1 (123) 456-7890</p>
+            </div>
+            <div class="info-section">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>info@example.com</p>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h2>Send us a message</h2>
+            <form action="#" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 0;
+    padding: 0;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h1 {
+    color: #2c3e50;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-header p {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-info {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.info-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.info-section i {
+    font-size: 2rem;
+    color: #007bff;
+    margin-right: 20px;
+}
+
+.info-section h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.info-section p {
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.contact-form h2 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .contact-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 20px 15px;
+    }
+    
+    .contact-header h1 {
+        font-size: 2rem;
+    }
+    
+    .info-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .info-section i {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+</style>
+{% endblock %}
